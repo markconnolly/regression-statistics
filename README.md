@@ -1,4 +1,5 @@
 regression-statistics
 =====================
 
-notes for using R
+https://github.com/markconnolly/regression-statistics/wiki
+
