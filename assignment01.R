@@ -1,17 +1,19 @@
 # load the xlsx package to use to read an excel file
 library(xlsx)
 
-# read the file and place the specified sheet and columns in a data frame
-# named dbh
-# a data frame is analogous to a spreadsheet
-# the <- is the standard mechanish for making an assignment in R
-dbh <- read.xlsx("Excel for Example 7.81 Fall 2014.xlsx", # excel file to read
-                 1,                                       # sheet to read
-                 colIndex=c(1,2))                         # columns to read
+# read the file and place the specified sheet and columns in a data frame named dbh
+dbh <- read.xlsx("data/Excel for Example 7.81 Fall 2014.xlsx",    # excel file to read
+                 1,                                               # sheet to read
+                 colIndex=c(1,2))                                 # columns to read
+
+# A data frame is analogous to a spreadsheet.
+# "<-" is the standard assignment operator in R.  "=" also works.
+
 # The first two arguments to the function read.xlsx are positional parameters
 # and need to be in a specific order position for the correct interpretation
 # by the function. Since no directory location is specified, the file will be
 # looked for in the current working directory.
+
 # colIndex is a named argument. After the positional parameters 
 # have been accounted for, named parameters can be in any order.  Named parameters
 # have defult values and do not need to be supplied if the default is the desired 
@@ -23,12 +25,16 @@ dbh <- read.xlsx("Excel for Example 7.81 Fall 2014.xlsx", # excel file to read
 # inside function calls use = as the assignment operator rather than the <- operator
 
 
+
 # show the summary statistics of all the variables
 summary(dbh)
+
 
 # perform two sample t-tests on vectors of data
 # each vector is a named column in the data frame
 t.test(dbh$north..dbh, dbh$south..dbh)
+
+
 
 
 # extra stuff
