@@ -1,5 +1,2 @@
-regression-statistics
+[regression statistics companion wiki](https://github.com/markconnolly/regression-statistics/wiki)
 =====================
-
-### A companion wiki
-https://github.com/markconnolly/regression-statistics/wiki
