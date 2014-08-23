@@ -1,8 +1,5 @@
 regression-statistics
 =====================
 
-### A Wiki for general information about R
+### A companion wiki
 https://github.com/markconnolly/regression-statistics/wiki
-
-### Homework
-### Week 1
