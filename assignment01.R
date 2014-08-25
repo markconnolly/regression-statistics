@@ -1,5 +1,0 @@
-setwd()
-library(xlsx)
-meaningful_name <- read.xlsx()
-summary(meaningful_name)
-t.test(meaningful_name$, meaningful_name$)
