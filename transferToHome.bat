@@ -4,8 +4,9 @@ rem  Batch file uses Connect:Direct Secure Plus to move files in the
 rem  root of the user's mapped t: drive in the HSD to the user's 
 rem  home directory in the core.  The home directory must be contained
 rem  in a parameter file that is specific to the user and named with the
-rem  user's HSD name with the suffix .parm.  
-rem  Example file: a12345-h1.parm.
+rem  user's HSD name with the suffix .parm
+rem 
+rem  Example file: a12345-h1.parm
 rem  Example file contents: \\wil-home\a12345$
 
 rem  Permissioned users are those set up with t: drives in the HSD
@@ -25,14 +26,18 @@ rem Read and execute for users.
 rem                         *** Need to identify location ***
 set CDXFER.CDHOME=.\connectdirect\
 
-
-rem derive name of the parameter file
-set parmfile=%CDXFER.PARMHOME%%username%.parm
-
 set message=complete
-if exist %parmfile% (
-    rem continue proessing 
-) else (
+
+rem source of the user files to transfer
+set sourcelocation=t:\
+if not exist %sourcelocation% (
+	set message=Source of files to transfer %sourcelocation% not available for user.  Must be mapped before transfers can be made.
+    goto eof
+)
+
+rem derive name of the parameter file and read core core homeDirectory
+set parmfile=%CDXFER.PARMHOME%%username%.parm
+if not exist %parmfile% (
 	set message=Parameter file %username%.parm was not found.  Must be created for user before transfers can be made.
     goto eof
 )
@@ -49,8 +54,10 @@ rem where to put log?
 rem where to collect log?
 rem how to cleanup log?
 rem 
-direct -x ....
-
+cdresp = direct -x ... %sourcelocation% %homeDirectory% ...
+if %cdresp% == 0 (
+) else (
+)
 
 :eof
     echo %message%
